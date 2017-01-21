@@ -1,18 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
-import { Article } from '../shared/article'
+import { Article } from '../shared/article';
 
 @Component( {
     selector: 'app-article',
-    inputs: ['article'],
-    host: {
-        class: 'row'
-    },
     templateUrl: './article.component.html',
     styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
+    @HostBinding('class.row') rowClass = true;
+    @Input()
     article: Article;
+
     constructor() { }
 
     ngOnInit() {
